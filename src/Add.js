@@ -8,10 +8,12 @@ const Add = ({show, handleClose, addMovie}) => {
     title:"",
     description:"",
     posterURL:"" ,
-    rating:1
+    rating:1,
+    trailerLink:""
   })
 
   const handleChange = (e) => {
+    e.preventDefault()    
     setNewMovie({...newMovie, [e.target.name]: e.target.value})
   }
 
@@ -30,7 +32,7 @@ const Add = ({show, handleClose, addMovie}) => {
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Rating</Form.Label>
-          <Form.Control type="text" placeholder="Description" onChange={handleChange} name="rating"/>
+          <Form.Control type="text" placeholder="rating" onChange={handleChange} name="rating"/>
         </Form.Group>
       </Row> 
 
@@ -46,6 +48,10 @@ const Add = ({show, handleClose, addMovie}) => {
         <Form.Control type="text" placeholder=" " onChange={handleChange} name="description"/>
       </Form.Group>
 
+      <Form.Group className="mb-3" controlId="formAddLink">
+        <Form.Label>Trailer Link</Form.Label>
+        <Form.Control type="text" placeholder=" " onChange={handleChange} name="trailerLink"/>
+      </Form.Group>
 
 
      
